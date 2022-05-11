@@ -8,7 +8,9 @@
 - [後編(javaクラスの呼び出し、並列実行など)](https://note.com/shift_tech/n/n2588d2826f60)
 - [サンプルコード(github)](https://github.com/YusukeKashiwagi44/KarateExample)
 
-いまのところ、テスト前後にDBの内容をXMLファイルに出力することしかやってませんが、同じ要領でなんでもできるはず。
+いまのところ、テスト前後にDBの内容をXML/Excel(XLS)/JSON/YMLファイルに出力することしかやってませんが、同じ要領でなんでもできるはず。
+
+XML以外の形式での出力は[database-rider](https://database-rider.github.io/database-rider)を使っています。
 
 ## karateについて
 
@@ -19,11 +21,10 @@
 ## dockerでJDK
 JDKをホストOSにインストールしたくない場合、JDK入りdockerコンテナでも実行できます。
 
-その場合、karateのプロジェクトのディレクトリで
+その場合、karateのプロジェクトのディレクトリで以下のようにコンテナ内でgradleを実行します。
 ```
-docker run --rm  --volume $PWD:$PWD --workdir $PWD --network host -it adoptopenjdk/openjdk11 bash
+docker run --rm  --volume $PWD:$PWD --workdir $PWD --network host -it openjdk:11-slim ./gradlew clean test
 ```
-を実行して、そのあとにコンテナ内でgradleを実行します。
 
 ## karate実行方法
 ### 1つのfeatureだけテストする

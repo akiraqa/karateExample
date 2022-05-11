@@ -17,6 +17,9 @@ dependencies {
     // only for dbUnit
     testCompile "org.dbunit:dbunit:2.5.+"
     runtimeOnly "mysql:mysql-connector-java:8.0.29"
+    // database-rider
+    implementation 'com.github.database-rider:rider-core:1.32.3'
+    testImplementation 'com.github.database-rider:rider-junit5:1.32.3'
 }
 
 test {
